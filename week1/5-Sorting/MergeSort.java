@@ -33,7 +33,7 @@ public class MergeSort {
         int m = 0;
         int n = 0;
         int k = left;
-        for (; k < right; k++) {
+        while (k < right) {
             if (m == l.length || n == r.length) {
                 break;
             }
@@ -46,6 +46,7 @@ public class MergeSort {
                 a[k] = r[n];
                 n++;
             }
+            k++;
         }
 
         while (m < l.length) {
