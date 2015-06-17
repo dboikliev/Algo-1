@@ -1,9 +1,9 @@
-public class Vector {
+public class Vector<T> {
     int initialCapacity = 2;
     int lastElementIndex = -1;
-    int[] elements = new int[initialCapacity];
+    T[] elements = (T[])new Object[initialCapacity];
 
-    public void insert(int index, int element) {
+    public void insert(int index, T element) {
         if (lastElementIndex + 1 == elements.length) {
             increaseCapacity();
         }
@@ -15,14 +15,14 @@ public class Vector {
     }
 
     private void increaseCapacity() {
-        int[] expandedArray = new int[elements.length * 2];
+        T[] expandedArray = (T[])new Object[elements.length * 2];
         for (int i = 0; i < elements.length; i++) {
             expandedArray[i] = elements[i];
         }
         elements = expandedArray;
     }
 
-    public void add(int element) {
+    public void add(T element) {
         if (lastElementIndex + 1 == elements.length) {
             increaseCapacity();
         }
@@ -30,7 +30,7 @@ public class Vector {
         elements[lastElementIndex] = element;
     }
 
-    public int get(int index) throws Exception {
+    public T get(int index) throws Exception {
         if (index > lastElementIndex) {
             throw new Exception("Out of vector bounds");
         }
@@ -55,7 +55,7 @@ public class Vector {
     }
 
     private void decreaseCapacity() {
-        int[] shrinkedArray = new int[elements.length / 2];
+        T[] shrinkedArray = (T[])new Object[elements.length / 2];
         for (int i = 0; i < shrinkedArray.length; i++) {
             shrinkedArray[i] = elements[i];
         }
@@ -63,11 +63,11 @@ public class Vector {
     }
 
 
-    public int pop() throws Exception {
+    public T pop() throws Exception {
         if (lastElementIndex - 1 < 0) {
             throw new Exception("The vector is empty");
         }
-        int lastElement = elements[lastElementIndex];
+        T lastElement = elements[lastElementIndex];
         lastElementIndex--;
         return lastElement;
     }

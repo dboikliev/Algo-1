@@ -1,26 +1,26 @@
-public class Stack {
-    private Queue elements = new Queue();
+public class Stack<T> {
+    private Queue<T> elements = new Queue<T>();
 
-    public void push(int value) {
+    public void push(T value) {
         elements.push(value);
     }
 
-    public int pop() throws Exception {
+    public T pop() throws Exception {
         Queue temp = new Queue();
         while (elements.size() > 1) {
-            int value = elements.pop();
+            T value = elements.pop();
             temp.push(value);
         }
-        int top = elements.pop();
+        T top = elements.pop();
         elements = temp;
         return top;
     }
 
-    public int peek() throws Exception {
+    public T peek() throws Exception {
         Queue temp = new Queue();
-        int top = 0;
+        T top = null;
         while (elements.size() > 0) {
-            int value = elements.pop();
+            T value = elements.pop();
             top = value;
             temp.push(value);
         }
