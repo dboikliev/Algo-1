@@ -10,7 +10,7 @@ public class BirthdayRanges {
 
     // Returns a vector with the number of people born in the specific ranges.
     public List<Integer> birthdaysCount(List<Integer> birthdays, List<Pair> ranges) {
-        Collections.shuffle(birthdays);
+        Collections.sort(birthdays);
         BinarySearch search = new BinarySearch();
         List<Integer> numbersOfBirthdays = new ArrayList<Integer>();
         for (Pair range : ranges) {
