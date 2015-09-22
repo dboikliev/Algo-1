@@ -136,9 +136,7 @@ public class SecondBestMst {
 
     private static void fillMax(int[][] max, ArrayList<KeyValue>[] tree, int count) {
         for (int i = 1; i < count; i++) {
-            for (int j = 0; j < tree[i].size(); j++) {
-                fillMaxVisit(max, tree, i, i);
-            }
+            fillMaxVisit(max, tree, i, i);
         }
     }
 
